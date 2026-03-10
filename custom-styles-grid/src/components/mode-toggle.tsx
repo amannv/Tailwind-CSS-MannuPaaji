@@ -41,10 +41,10 @@ const ModeToggle = () => {
   return (
     <button
       onClick={SWITCH_THEME}
-      className="absolute right-4 top-4 flex justify-center items-center"
+      className="absolute size-8 border border-neutral-500 rounded-md right-4 top-4 flex justify-center items-center"
     >
-      <Sun />
-      <Moon />
+      <Sun className="absolute items-center size-5 shrink-0 text-neutral-500 dark:scale-0 scale-100 dark:rotate-45" />
+      <Moon className="absolute items-center size-5 shrink-0 text-neutral-500 scale-0 dark:scale-100 dark:rotate-0 rotate-45"/>
     </button>
   );
 };

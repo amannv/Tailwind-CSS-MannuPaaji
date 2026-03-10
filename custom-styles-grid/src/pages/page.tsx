@@ -2,7 +2,7 @@ import ModeToggle from "../components/mode-toggle";
 const Page = () => {
 
   return (
-    <div className="min-h-screen w-full bg-white dark:bg-black">
+    <div className="relative min-h-screen w-full">
       <div>Hello World!</div>
       <ModeToggle />
     </div>
