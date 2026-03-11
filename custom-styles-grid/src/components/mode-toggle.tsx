@@ -12,7 +12,7 @@ const ModeToggle = () => {
     setSystemTheme(mediaQuery.matches ? "dark" : "light");
 
     const handleChange = (e: MediaQueryListEvent) => {
-      setSystemTheme(mediaQuery.matches ? "dark" : "light");
+      setSystemTheme(e.matches ? "dark" : "light");
     };
 
     mediaQuery.addEventListener("change", handleChange);
@@ -41,10 +41,10 @@ const ModeToggle = () => {
   return (
     <button
       onClick={SWITCH_THEME}
-      className="absolute size-8 border border-neutral-500 rounded-md right-4 top-4 flex justify-center items-center"
+      className="absolute size-8 border dark:border-neutral-800 border-neutral-200 rounded-md right-4 top-4 flex justify-center items-center"
     >
-      <Sun className="absolute items-center size-5 shrink-0 text-neutral-500 dark:scale-0 scale-100 dark:rotate-45" />
-      <Moon className="absolute items-center size-5 shrink-0 text-neutral-500 scale-0 dark:scale-100 dark:rotate-0 rotate-45"/>
+      <Sun className="absolute inset-0 m-auto size-5 shrink-0 text-neutral-500 dark:scale-0 scale-100 dark:rotate-45 transition-all duration-300" />
+      <Moon className="absolute inset-0 m-auto size-5 shrink-0 dark:text-neutral-200 scale-0 dark:scale-100 dark:rotate-0 rotate-45 transition-all duration-300" />
     </button>
   );
 };

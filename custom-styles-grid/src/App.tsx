@@ -1,13 +1,15 @@
-import { ThemeProvider } from "next-themes";
 import "./index.css";
-import Home from "./pages/page";
+import Page from "./pages/page";
+import { ThemeProvider } from "next-themes";
 
 const App = () => {
-  return <div>
-    <ThemeProvider>
-    <Home /> 
-    </ThemeProvider>
-  </div>;
+  return (
+    <div>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <Page />
+      </ThemeProvider>
+    </div>
+  );
 };
 
 export default App;
