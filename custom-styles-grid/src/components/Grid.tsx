@@ -1,6 +1,14 @@
 import type React from "react";
 import { cn } from "../utils/utils";
-import { AppWindowMac, BrainIcon, SquareMousePointer, Waypoints } from "lucide-react";
+import {
+  AppWindowMac,
+  BrainIcon,
+  SquareMousePointer,
+  Waypoints,
+} from "lucide-react";
+import ClaudeIcon from "../icons/claude-transparent-custom.png";
+import ChatGPTIcon from "../icons/63c52af590250dd34bd6a9ab.png";
+import MetaIcon from "../icons/61fae2f695e6ca00047b4f13.png";
 
 const ChatCard = () => {
   const chat = [
@@ -20,7 +28,7 @@ const ChatCard = () => {
 
   const UserMessage = ({ text }: { text: string }) => {
     return (
-      <div className="flex justify-end items-start gap-2 bg-blue-500 rounded-tr-full rounded-tl-full rounded-bl-full rounded-br-lg py-2 px-4 w-fit ml-auto">
+      <div className="flex justify-end items-center gap-2 bg-blue-500 rounded-tr-full rounded-tl-full rounded-bl-full rounded-br-lg py-2 px-4 w-fit ml-auto">
         <p className="text-sm text-white">{text}</p>
         <div className="rounded-full shrink-0 size-4 bg-linear-to-r from-blue-400 to-purple-500" />
       </div>
@@ -29,7 +37,7 @@ const ChatCard = () => {
 
   const AIMessage = ({ text }: { text: string }) => {
     return (
-      <div className="flex justify-start items-start gap-2 bg-gray-100 rounded-tr-full rounded-tl-full rounded-bl-lg rounded-br-full w-fit mr-auto py-2 px-4">
+      <div className="flex justify-start items-center gap-2 bg-gray-100 rounded-tr-full rounded-tl-full rounded-bl-lg rounded-br-full w-fit mr-auto py-2 px-4">
         <div className="size-4 bg-linear-to-r shrink-0 from-green-500 to-emerald-500 rounded-full" />
         <p className="text-sm text-black">{text}</p>
       </div>
@@ -55,26 +63,75 @@ const ChatCard = () => {
 };
 
 const LLMCard = () => {
-
   return (
-    <div className="h-full w-full flex bg-white relative z-20">
-    <div className="h-full flex flex-col gap-2 shadow-x shadow-2xl p-4 mt-8 w-[calc(100%-6rem)] mx-auto border-y border-neutral-200 rounded-t-2xl bg-white">
-      <div className="flex gap-2">
-      <div className="bg-red-500 rounded-full h-3 w-3"></div>
-      <div className="bg-green-500 rounded-full h-3 w-3"></div>
-      <div className="bg-yellow-500 rounded-full h-3 w-3"></div>
+    <div className="h-full w-full grid grid-cols-1 bg-white relative z-20">
+      <div className="h-16 w-30 rounded-md divide-y divide-neutral-300 bg-white border border-neutral-200 shadow-2xs absolute right-2">
+        <div className="py-1 px-2 flex justify-between items-center">
+          <div className="flex items-center gap-1">
+            <img className="h-3 w-3" src={ChatGPTIcon} alt="chatgpt-icon"></img>
+            <p className="text-[10px]">Open AI</p>
+          </div>
+          <p className="text-neutral-500 text-[10px]">GPT 5</p>
+        </div>
+        <div className="flex justify-start p-2 pt-2.5 items-center">
+          <div className="bg-blue-50 border border-blue-500 px-2 rounded-sm ">
+            <p className="text-blue-500 text-[12px]">Connected</p>
+          </div>
+        </div>
       </div>
-      <div className="flex mt-6 justify-start items-center gap-2">
-        <AppWindowMac size={15} />
-        <p>All Models</p>
-        <p className="bg-gray-100 mt-0.5 border border-gray-200 px-2 rounded-xl text-[12px]">69,420</p>
+      <div className="h-full flex flex-col gap-2 shadow-x shadow-2xl p-4 mt-8 w-[calc(100%-6rem)] mx-auto border-y border-neutral-200 rounded-t-2xl bg-white">
+        <div className="flex gap-2">
+          <div className="bg-red-500 rounded-full h-3 w-3"></div>
+          <div className="bg-green-500 rounded-full h-3 w-3"></div>
+          <div className="bg-yellow-500 rounded-full h-3 w-3"></div>
+        </div>
+        <div className="flex mt-6 justify-start items-center gap-2">
+          <AppWindowMac size={15} />
+          <p>All Models</p>
+          <p className="bg-gray-100 mt-0.5 border border-gray-200 px-2 rounded-xl text-[12px]">
+            69,420
+          </p>
+        </div>
+        <div className="w-full h-px bg-gray-100"></div>
+        <div className="flex flex-col gap-2">
+          <div className="flex justify-between items-center">
+            <div className="flex justify-start gap-1 items-center">
+              <img className="h-7 w-7" src={ClaudeIcon} alt="claude-icon"></img>
+              <p className="text-sm">Claude 4 Opus</p>
+            </div>
+            <div className="bg-red-50 border border-red-500 px-2 rounded-sm ">
+              <p className="text-red-500 text-[12px]">Unavailable</p>
+            </div>
+          </div>
+          <div className="flex justify-between items-center">
+            <div className="flex ml-1.5 justify-start gap-2 items-center">
+              <img
+                className="h-4 w-4"
+                src={ChatGPTIcon}
+                alt="claude-icon"
+              ></img>
+              <p className="text-sm">ChatGPT</p>
+            </div>
+            <div className="bg-green-50 border border-green-500 px-2 rounded-sm ">
+              <p className="text-green-500 text-[12px]">Connected</p>
+            </div>
+          </div>
+          <div className="flex justify-between mt-1 items-center">
+            <div className="flex ml-0.5 justify-start gap-2 items-center">
+              <img className="h-3 w-6" src={MetaIcon} alt="claude-icon"></img>
+              <p className="text-sm">Llama 3.2</p>
+            </div>
+            <div className="bg-yellow-50 border border-yellow-500 px-2 rounded-sm ">
+              <p className="text-yellow-500 text-[12px]">Waiting</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="w-full h-px bg-gray-100"></div>
     </div>
-    </div>
-  )
-    
-}
+  );
+};
+
+
 
 const Grid = () => {
   return (
@@ -89,7 +146,7 @@ const Grid = () => {
             Track real-time activity of agents with detailed records of
             triggers, tools used, outcomes, and timestamps.
           </CardDescription>
-          <CardSkeleton>
+          <CardSkeleton className="mask-radial-from-100%">
             <LLMCard />
           </CardSkeleton>
         </Card>
