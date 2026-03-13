@@ -1,6 +1,6 @@
 import type React from "react";
 import { cn } from "../utils/utils";
-import { BrainIcon, SquareMousePointer, Waypoints } from "lucide-react";
+import { AppWindowMac, BrainIcon, SquareMousePointer, Waypoints } from "lucide-react";
 
 const ChatCard = () => {
   const chat = [
@@ -55,6 +55,24 @@ const ChatCard = () => {
 };
 
 const LLMCard = () => {
+
+  return (
+    <div className="h-full w-full flex bg-white relative z-20">
+    <div className="h-full flex flex-col gap-2 shadow-x shadow-2xl p-4 mt-8 w-[calc(100%-6rem)] mx-auto border-y border-neutral-200 rounded-t-2xl bg-white">
+      <div className="flex gap-2">
+      <div className="bg-red-500 rounded-full h-3 w-3"></div>
+      <div className="bg-green-500 rounded-full h-3 w-3"></div>
+      <div className="bg-yellow-500 rounded-full h-3 w-3"></div>
+      </div>
+      <div className="flex mt-6 justify-start items-center gap-2">
+        <AppWindowMac size={15} />
+        <p>All Models</p>
+        <p className="bg-gray-100 mt-0.5 border border-gray-200 px-2 rounded-xl text-[12px]">69,420</p>
+      </div>
+      <div className="w-full h-px bg-gray-100"></div>
+    </div>
+    </div>
+  )
     
 }
 
@@ -72,7 +90,7 @@ const Grid = () => {
             triggers, tools used, outcomes, and timestamps.
           </CardDescription>
           <CardSkeleton>
-            <div className="h-full w-full"></div>
+            <LLMCard />
           </CardSkeleton>
         </Card>
         <Card>
@@ -84,7 +102,7 @@ const Grid = () => {
             Preview and debug workflow logic in a safe sandbox before deploying,
             helping you iterate with confidence.
           </CardDescription>
-          <CardSkeleton className="bg-white">
+          <CardSkeleton>
             <ChatCard />
           </CardSkeleton>
         </Card>
