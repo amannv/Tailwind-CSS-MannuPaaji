@@ -157,6 +157,12 @@ const RoadMapCard = () => {
           <div className="bg-white border-neutral-200 h-15 w-15 border rounded-md flex justify-center items-center">
           <NodusIcon />
           </div>
+          <div className="bg-neutral-200 h-px w-20"></div>
+          <div className="flex justify-start items-center">
+          <div className="bg-blue-50 border border-blue-500 px-2 rounded-sm ">
+            <p className="text-blue-500 text-[12px]">Connected</p>
+          </div>
+          </div>
         </div>
         <div className="flex justify-start items-center">
         <div className="flex gap-2 text-sm justify-center items-start">
