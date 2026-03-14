@@ -3,12 +3,15 @@ import { cn } from "../utils/utils";
 import {
   AppWindowMac,
   BrainIcon,
+  Code,
+  Phone,
   SquareMousePointer,
   Waypoints,
 } from "lucide-react";
 import ClaudeIcon from "../icons/claude-transparent-custom.png";
 import ChatGPTIcon from "../icons/63c52af590250dd34bd6a9ab.png";
 import MetaIcon from "../icons/61fae2f695e6ca00047b4f13.png";
+import NodusIcon from "../icons/NodusIcon";
 
 const ChatCard = () => {
   const chat = [
@@ -131,11 +134,48 @@ const LLMCard = () => {
   );
 };
 
-
+const RoadMapCard = () => {
+  return (
+    <div className="h-full w-full p-20 flex justify-start items-center">
+      <div className="flex flex-col">
+        <div className="flex justify-start items-center">
+        <div className="flex gap-2 text-sm justify-center items-start">
+          <AppWindowMac size={15} />
+          <p>Meeting Summarizer</p>
+          <div className="flex justify-center items-start">
+          <div className="bg-neutral-200 ml-5 h-px w-64"></div>
+          <div className="bg-neutral-200 w-px h-8"></div>
+          </div>
+          </div>
+        </div>
+        <div className="flex text-sm justify-start items-center">
+          <div className="flex gap-2 justify-center items-center">
+          <Code size={15} />
+          <p>Code Reviewer</p>
+          <div className="bg-neutral-200 ml-11 h-px w-60"></div>
+          </div>
+          <div className="bg-white border-neutral-200 h-15 w-15 border rounded-md flex justify-center items-center">
+          <NodusIcon />
+          </div>
+        </div>
+        <div className="flex justify-start items-center">
+        <div className="flex gap-2 text-sm justify-center items-start">
+          <Phone size={15} />
+          <p>Customer Support</p>
+          <div className="flex justify-center items-end">
+          <div className="bg-neutral-200 ml-5 h-px w-68"></div>
+          <div className="bg-neutral-200 w-px h-8"></div>
+          </div>
+          </div>
+        </div>
+      </div>
+      </div>
+  )
+}
 
 const Grid = () => {
   return (
-    <div className="max-w-5xl py-20 border-x  border-neutral-200 mx-auto bg-white dark:bg-neutral-800 min-h-screen">
+    <div className="max-w-5xl py-20 border-x border-neutral-200 mx-auto bg-white dark:bg-neutral-800 min-h-screen">
       <div className="grid grid-cols-1 lg:grid-cols-2 divide-x divide-y border-y border-neutral-200 divide-neutral-200">
         <Card>
           <CardHeader>
@@ -146,7 +186,7 @@ const Grid = () => {
             Track real-time activity of agents with detailed records of
             triggers, tools used, outcomes, and timestamps.
           </CardDescription>
-          <CardSkeleton className="mask-radial-from-100%">
+          <CardSkeleton className="mask-b-from-80% mask-radial-from-100%">
             <LLMCard />
           </CardSkeleton>
         </Card>
@@ -172,8 +212,8 @@ const Grid = () => {
             Track real-time activity of agents with detailed records of
             triggers, tools used, outcomes, and timestamps.
           </CardDescription>
-          <CardSkeleton>
-            <div className="h-full w-full"></div>
+          <CardSkeleton className="h-80">
+            <RoadMapCard />
           </CardSkeleton>
         </Card>
       </div>
